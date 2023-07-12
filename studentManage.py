@@ -22,9 +22,11 @@ def validate(st_id) -> int:
 
 def search_and_getID(name) -> int:
     # print(student_arry.index(name))
-    x = student_arry.index(name)
-    print(x)
-    return x
+    try:
+        x = student_arry.index(name)
+        return x
+    except:
+        print("something wrong !\n")
 
 
 def cls():
@@ -63,9 +65,6 @@ def add_student():
                 continue
 
 
-
-
-
 def search():
     cls()
 
@@ -89,18 +88,22 @@ def search():
 def studentUpdate():
     cls()
 
-    print("\t\t\t\t\t=======update Student======\n\n\n")
-    name = input("enter student name ->")
-    y = search_and_getID(name)
-    print("index ->")
-    print(y)
-    new_name = input("enter new name ->")
-    student_arry[y] = new_name
-    go = input("do you want go to main (yes or no)-> ")
-    if go == "yes":
-        navigate()
-    else:
-        print("buyyy !")
+    setHeader("update student\b\b\b\b")
+    while True:
+        name = input("enter student name ->")
+        y = search_and_getID(name)
+        if y >= 0:
+            print("index ->")
+            new_name = input("enter new name ->")
+        else:
+            continue
+
+        student_arry[y] = new_name
+        go = input("do you want go to main (yes or no)-> ")
+        if go == "yes":
+            navigate()
+        else:
+            print("buyyy !")
 
 
 def add_student_withMarks():
