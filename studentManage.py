@@ -1,9 +1,9 @@
 # print("[01] studet add"+"\t\t\t"+"[02] student update"+"\n"+"[04] add marks with student"+"\t"+"[04] add marks\n\n")
-import os;
+import os
 
 student_arry = []
 student_id = []
-marks_arry = []
+marks_array = []
 
 
 def setHeader(header):
@@ -39,21 +39,31 @@ def add_student():
 
     setHeader("add student\b\b\b")
 
-    st_id = input("student id ->")
-    x = validate(st_id)
-    if x == 0:
-        name = input("enter student name ->")
-        student_arry.append(name)
-        student_id.append(st_id)
-        print(student_arry, student_id)
-        go = input("do you want go to main ->")
-        if go == "yes":
-            navigate()
-    else:
-        print("alrady exsits id !")
-        go = input("do you want go to main ->")
-        if go == "yes":
-            navigate()
+    while True:
+        st_id = input("student id ->")
+        print("\n")
+        x = validate(st_id)
+
+        if x == 0:
+            name = input("enter student name ->")
+            print("\n")
+            student_arry.append(name)
+            student_id.append(st_id)
+            print(student_arry, student_id)
+            go = input("do you want go to main ->\n")
+            if go == "yes":
+                navigate()
+        else:
+            print("alrady exsits id !")
+            go = input("do you want go to main ->")
+            if go == "yes":
+                navigate()
+                break
+            else:
+                continue
+
+
+
 
 
 def search():
