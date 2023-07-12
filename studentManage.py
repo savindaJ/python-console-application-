@@ -37,7 +37,8 @@ def cls():
 def add_student():
     cls()
 
-    print("\t\t\t\t\t=======add Student======\n\n\n")
+    setHeader("add student\b\b\b")
+
     st_id = input("student id ->")
     x = validate(st_id)
     if x == 0:
